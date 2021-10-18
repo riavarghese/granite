@@ -22,8 +22,8 @@ const App = () => {
   const isLoggedIn = !either(isNil, isEmpty)(authToken) && authToken !== "null";
 
   useEffect(() => {
-    initializeLogger();
     registerIntercepts();
+    initializeLogger();
     setAuthHeaders(setLoading);
   }, []);
 
@@ -39,10 +39,9 @@ const App = () => {
     <Router>
       <ToastContainer />
       <Switch>
-        <Route exact path="/tasks/:slug/edit" component={EditTask} />
         <Route exact path="/tasks/:slug/show" component={ShowTask} />
+        <Route exact path="/tasks/:slug/edit" component={EditTask} />
         <Route exact path="/tasks/create" component={CreateTask} />
-        <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
         <PrivateRoute

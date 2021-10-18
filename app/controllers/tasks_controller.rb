@@ -2,9 +2,9 @@
 
 class TasksController < ApplicationController
   before_action :load_task, only: %i[show update destroy]
-  bbefore_action :authenticate_user_using_x_auth_token, except: [:new, :edit]
+  before_action :authenticate_user_using_x_auth_token, except: [:new, :edit]
   def index
-    tasks = Task.all
+    tasks = Task.all.as_json(include: { assigned_user: { only: %i[id name] } })
     render status: :ok, json: { tasks: tasks }
   end
 
