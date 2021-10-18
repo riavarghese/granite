@@ -2,7 +2,7 @@
 
 class TasksController < ApplicationController
   before_action :load_task, only: %i[show update destroy]
-
+  bbefore_action :authenticate_user_using_x_auth_token, except: [:new, :edit]
   def index
     tasks = Task.all
     render status: :ok, json: { tasks: tasks }
