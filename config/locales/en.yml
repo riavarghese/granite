@@ -6,6 +6,6 @@ en:
     incorrect_credentials: "Incorrect credentials, try again."
   successfully_created: "%{entity} was successfully created!"
   task:
-    not_found: "Task not found"
+    not_found: "%{entity} not found"
     slug:
       immutable: "is immutable!"
