@@ -30,6 +30,6 @@ class CommentTest < ActiveSupport::TestCase
 
   def test_comment_should_not_be_valid_without_task
     @comment.task = nil
-    asser @comment.invalid?
+    assert @comment.invalid?
   end
 end
